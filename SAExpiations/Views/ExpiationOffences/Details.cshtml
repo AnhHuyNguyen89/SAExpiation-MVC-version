@@ -1,0 +1,78 @@
+﻿@model SAExpiations.ViewModels.ExpiationCodeList
+
+@{
+    ViewData["Title"] = "Expiation Details";
+}
+
+<h1 style=" width:100%;height:120px; text-align:center; line-height:120px" class="border border-dark">Expiation Code Details</h1>
+
+
+<dl>
+    <div class="row">
+        <dt class="col">@Html.DisplayNameFor(model => model.offenceCode)</dt>
+        <dd class="col">@Model.offenceCode</dd>
+    </div>
+    <div class="row">
+        <dt class="col">@Html.DisplayNameFor(model => model.offenceDescription)</dt>
+        <dd class="col">@Model.offenceDescription</dd>
+    </div>
+    <div class="row">
+        <dt class="col">@Html.DisplayNameFor(model => model.Count)</dt>
+        <dd class="col">@Model.Count</dd>
+    </div>
+</dl>
+
+<form asp-controller="ExpiationOffences" asp-action="Details" method="get" class="row">
+    <div class="col-5">
+        <select name="year" class="form-select">
+            <option value="" style="text-align:center" selected>Year Selection</option>
+            @foreach (var year in Model.Years)
+            {
+                <option value="@year">@year</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <button type="submit" class="btn btn-outline-dark">Choose</button>
+        <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+    </div>
+</form>
+<br />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Month</th>
+            <th scope="col">Notice Status Description</th>
+            <th scope="col">Status Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int yearCount = 0;
+            foreach (var month in Model.report)
+            {
+                int monthCount = 0;
+                foreach (var numberS in month.Value)
+                {
+                    monthCount += numberS.Value;
+                }
+                <tr class="row-header-month">
+                    <th scope="row">@month.Key</th>
+                    <td></td>
+                    <td style="font-weight:700">Total: @monthCount</td>
+                </tr>
+                foreach (var notice in month.Value)
+                {
+                    <tr class="row-parent">
+                        <th scope="row" value="@notice.Key"></th>
+                        <td class="row-child-key" value="@notice.Key">@notice.Key</td>
+                        <td class="row-child-value" style="align-items:end" value="@notice.Key">@notice.Value</td>
+                    </tr>
+                }
+                yearCount += monthCount;
+            }
+        }
+    </tbody>
+</table>
+<div class="row" style="float:right; padding-right:10%; font-weight:700">Year To Date: <br /> @yearCount</div> <br /> <br />
+

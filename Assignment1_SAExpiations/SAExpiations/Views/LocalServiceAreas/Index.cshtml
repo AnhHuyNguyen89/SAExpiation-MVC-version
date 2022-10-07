@@ -1,0 +1,70 @@
+﻿@model SAExpiations.ViewModels.LocalServiceVM
+
+@{
+    ViewData["Title"] = "Region List";
+}
+<h1 style=" width:100%;height:120px; text-align:center; line-height:120px" class="border border-dark">SAPOL Region Data</h1>
+<form asp-controller="LocalServiceAreas" asp-action="Index" method="get" class="row">
+    <div class="col-5">
+        <select name="year" class="form-select">
+            <option value="" style="text-align:center" selected>Year Selection</option>
+            @foreach (var year in Model.Years)
+            {
+                <option value="@year">@year</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        <button type="submit" class="btn btn-outline-dark">Choose</button>
+    </div>
+</form>
+<div class="row">
+    @foreach (var region in Model.LocalArea)
+    {
+        <div class="col-sm-4">
+            <div class="card mt-sm-4 hover-zoom" onclick="details('@region.localServiceArea')">
+                <div class="card-body">
+                    <h4 class="card-title">Region: @region.localServiceArea1</h4>
+                    <p class="card-text">Region Code: @region.localServiceArea</p>
+                    <p class="card-text">Yearly Count: @region.RegionCount</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script>
+    function details(id) {
+        var url = '@Url.Action("Details", "LocalServiceAreas", new {id = "_id" })';
+        var urlWithId = url.replace('_id', id);
+        window.open(urlWithId, '_blank');
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 60px;
+    z-index: 999;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: black !important;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.card {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 80px 36px;
+    cursor: pointer;
+    box-sizing:border-box;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    background-color:black;
+    color:white;
+}
+.row-child-key[value="EXPIATED"], .row-parent th[value="EXPIATED"], .row-child-value[value="EXPIATED"] {
+    background-color: rgb(255,204,204) !important;
+}
+.row-child-key[value="COURTS ENFORCEMENT (pending or enforced)"], .row-parent th[value="COURTS ENFORCEMENT (pending or enforced)"], .row-child-value[value="COURTS ENFORCEMENT (pending or enforced)"] {
+    background-color: rgb(221,235,247) !important;
+}
+.row-child-key[value="WITHDRAWN"], .row-parent th[value="WITHDRAWN"], .row-child-value[value="WITHDRAWN"] {
+    background-color: rgb(226,239,218) !important;
+}
+.row-header-month{
+    background-color: rgb(255,242,204) !important;
+}
