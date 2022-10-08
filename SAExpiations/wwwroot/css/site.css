@@ -48,6 +48,31 @@ body {
     background-color:black;
     color:white;
 }
+.card .hover_content {
+    position: relative;
+    top: -80px;
+    color: #111;
+    visibility: hidden;
+    text-align:center;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+.card:hover .hover_content {
+    margin-top: 100px;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+    color: white;
+}
+.card-title{
+    margin-top:2rem;
+    text-align:center;
+}
+
+
+
+
+
 .row-child-key[value="EXPIATED"], .row-parent th[value="EXPIATED"], .row-child-value[value="EXPIATED"] {
     background-color: rgb(255,204,204) !important;
 }
