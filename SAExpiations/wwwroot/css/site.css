@@ -48,6 +48,7 @@ body {
     background-color:black;
     color:white;
 }
+
 .card .hover_content {
     position: relative;
     top: -80px;
@@ -57,6 +58,7 @@ body {
     opacity: 0;
     transition: 0.3s ease-in-out;
 }
+
 .card:hover .hover_content {
     margin-top: 100px;
     visibility: visible;
@@ -69,19 +71,17 @@ body {
     text-align:center;
 }
 
-
-
-
-
 .row-child-key[value="EXPIATED"], .row-parent th[value="EXPIATED"], .row-child-value[value="EXPIATED"] {
     background-color: rgb(255,204,204) !important;
 }
 .row-child-key[value="COURTS ENFORCEMENT (pending or enforced)"], .row-parent th[value="COURTS ENFORCEMENT (pending or enforced)"], .row-child-value[value="COURTS ENFORCEMENT (pending or enforced)"] {
     background-color: rgb(221,235,247) !important;
 }
+
 .row-child-key[value="WITHDRAWN"], .row-parent th[value="WITHDRAWN"], .row-child-value[value="WITHDRAWN"] {
     background-color: rgb(226,239,218) !important;
 }
+
 .row-header-month{
     background-color: rgb(255,242,204) !important;
 }
